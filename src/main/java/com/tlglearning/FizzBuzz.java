@@ -1,20 +1,21 @@
 package com.tlglearning;
 
-public class FizzBuzz {
+import com.sun.source.doctree.SeeTree;
+import java.util.EnumSet;
+import java.util.Set;
 
-  public static final String FIZZ_RESULT = "fizz";
-  public static final String Buzz_RESULT = "buzz";
+public enum FizzBuzz {
 
-  public static String valueOf(int num) {
-    String result = "";
-    if (num % 3== 0) {
-      result = FIZZ_RESULT;
+  FIZZ,
+  BUZZ;
+
+  public static Set<FizzBuzz> valueOf(int num) {
+    Set<FizzBuzz> result = EnumSet.noneOf(FizzBuzz.class);
+    if (num % 3 == 0) {
+      result.add(FIZZ);
     }
-    if (num % 5 ==0) {
-      result += Buzz_RESULT;
-    }
-    if (result.isEmpty()) {
-      result = String.valueOf(num);
+    if (num % 5 == 0) {
+      result.add(BUZZ);
     }
     return result;
   }
